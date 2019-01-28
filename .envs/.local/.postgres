@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=ariana
+POSTGRES_USER=soEYyWfavdUwgYqFdVyPxXpUbOEYIPvw
+POSTGRES_PASSWORD=Nb8Pnf3ScgVQO3jGQ36wYf2ToUDznNSo4jZFgCXjpb99XShqWETr6sX112VHDav8

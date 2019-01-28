@@ -1,0 +1,11 @@
+# General
+# ------------------------------------------------------------------------------
+USE_DOCKER=yes
+IPYTHONDIR=/app/.ipython
+
+# Redis
+# ------------------------------------------------------------------------------
+REDIS_URL=redis://redis:6379/0
+
+# PostgreSQL
+DATABASE_URL=postgres://soEYyWfavdUwgYqFdVyPxXpUbOEYIPvw:Nb8Pnf3ScgVQO3jGQ36wYf2ToUDznNSo4jZFgCXjpb99XShqWETr6sX112VHDav8@postgres/ariana

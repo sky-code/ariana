@@ -1,0 +1,38 @@
+{
+  "name": "ariana",
+  "version": "1.0.0",
+  "description": "Test Task Ariana",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sky-code/ariana.git"
+  },
+  "dependencies": {
+    "bootstrap": "4.1.3",
+    "bootstrap-vue": "2.0.0-rc.11",
+    "nuxt": "2.3.4",
+    "vue-wait": "1.3.2"
+  },
+  "devDependencies": {
+    "@nuxtjs/dotenv": "1.3.0",
+    "node-sass": "4.11.0",
+    "sass-loader": "7.1.0"
+  },
+  "engines": {
+    "node": ">=10.3.0"
+  },
+  "scripts": {
+    "dev": "DEBUG=nuxt:* nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "js-lint": "eslint webclient/",
+    "renovate": "renovate --package-files=package.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sky-code/ariana/issues"
+  },
+  "homepage": "https://github.com/sky-code/ariana#readme"
+}
