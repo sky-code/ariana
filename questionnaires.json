@@ -1,0 +1,48 @@
+{
+  "name": "Dialog example",
+  "children": {
+    "title": "Are you hungry?",
+    "children": [
+      {
+        "title": "Yes",
+        "children": {
+          "title": "What would you like to eat?",
+          "children": [
+            {
+              "title": "Hamburger",
+              "children": {
+                "title": "Nice, I will order a hamburger for you!"
+              }
+            },
+            {
+              "title": "Pizza",
+              "children": {
+                "title": "Would you like pizza with mushrooms?",
+                "children": [
+                  {
+                    "title": "Yes",
+                    "children": {
+                      "title": "Ok, I will order the best pizza in town for you"
+                    }
+                  },
+                  {
+                    "title": "No",
+                    "children": {
+                      "title": "No? Well... stay hungry then"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "title": "No",
+        "children": {
+          "title": "Ok. Call me when you're hungry."
+        }
+      }
+    ]
+  }
+}
