@@ -36,16 +36,24 @@ export default {
         'bootstrap/dist/css/bootstrap.min.css',
         '~/assets/styles/index.scss',
     ],
-    plugins: [],
+    plugins: [
+        '~/plugins/ariana-client-plugin.js',
+    ],
     /*
     ** Additional modules
      */
     modules: [
+        '@nuxtjs/axios',
         ['@nuxtjs/dotenv', {
             path: rootDir,
             only: ['ARIANA_WEB_API_URL', 'ARIANA_WEB_API_SSR_URL']
         }],
         ['bootstrap-vue/nuxt', {css: false}],
         ['vue-wait/nuxt', {useVuex: false}],
-    ]
+    ],
+    axios: {
+        baseURL: process.env.ARIANA_WEB_API_SSR_URL,
+        browserBaseURL: process.env.ARIANA_WEB_API_URL,
+        credentials: true
+    }
 }

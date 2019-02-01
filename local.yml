@@ -33,3 +33,13 @@ services:
       - ./.envs/.local/.postgres
     ports:
       - "5432:5432"
+
+  nuxt:
+    build:
+      context: .
+      dockerfile: ./compose/local/nuxt/Dockerfile
+    image: ariana_local_nuxt
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"

@@ -12,4 +12,4 @@ class QuestionsAnswersAdmin(TreeAdmin):
 
 @admin.register(Questionnaire)
 class QuestionnaireAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('name', 'first_qa', 'is_valid_qa_tree')

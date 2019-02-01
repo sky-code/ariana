@@ -8,6 +8,8 @@
     "url": "git+https://github.com/sky-code/ariana.git"
   },
   "dependencies": {
+    "@nuxtjs/axios": "5.3.6",
+    "axios": "0.18.0",
     "bootstrap": "4.1.3",
     "bootstrap-vue": "2.0.0-rc.11",
     "nuxt": "2.3.4",

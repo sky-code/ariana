@@ -20,23 +20,6 @@ d-build:
 d-rebuild:
 	@docker-compose -f local.yml build --no-cache $(FLAGS)
 
-.PHONY: dp-up
-dp-up:
-	@docker-compose -f production.yml up $(FLAGS)
-
-.PHONY: dp-stop
-dp-stop:
-	@docker-compose -f production.yml stop $(FLAGS)
-
-.PHONY: dp-build
-dp-build:
-	@docker-compose -f production.yml build $(FLAGS)
-
-.PHONY: dp-rebuild
-dp-rebuild:
-	@docker-compose -f production.yml build --no-cache $(FLAGS)
-
-
 .PHONY: d-portainer
 d-portainer:
 	@docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer
