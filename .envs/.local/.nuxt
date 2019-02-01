@@ -1,0 +1,4 @@
+# webclient settings
+ARIANA_WEB_API_URL=http://localhost:8000/api/
+
+ARIANA_WEB_API_SSR_URL=http://django:8000/api/
