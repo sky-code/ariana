@@ -6,19 +6,19 @@ install-dev:
 
 .PHONY: d-up
 d-up:
-	@docker-compose -f local.yml up $(FLAGS)
+	@docker-compose up $(FLAGS)
 
 .PHONY: d-stop
 d-stop:
-	@docker-compose -f local.yml stop $(FLAGS)
+	@docker-compose stop $(FLAGS)
 
 .PHONY: d-build
 d-build:
-	@docker-compose -f local.yml build $(FLAGS)
+	@docker-compose build $(FLAGS)
 
 .PHONY: d-rebuild
 d-rebuild:
-	@docker-compose -f local.yml build --no-cache $(FLAGS)
+	@docker-compose build --no-cache $(FLAGS)
 
 .PHONY: d-portainer
 d-portainer:

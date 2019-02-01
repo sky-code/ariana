@@ -40,6 +40,9 @@ services:
       dockerfile: ./compose/local/nuxt/Dockerfile
     image: ariana_local_nuxt
     volumes:
-      - .:/app
+      - ./nuxt.config.js:/app/nuxt.config.js
+      - ./webclient:/app/webclient
+    env_file:
+      - ./.envs/.local/.nuxt
     ports:
       - "3000:3000"
