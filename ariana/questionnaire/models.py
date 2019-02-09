@@ -16,6 +16,7 @@ class QuestionsAnswers(MP_Node):
         self._validate_max_answers_count()
 
     def _validate_max_answers_count(self):
+        """Validate this node, does not excited limit of associated answers"""
         # The number of answers associated with a question is limited to 5
         max_answers_count = settings.MAX_ANSWERS_COUNT
         parent = self.get_parent()
@@ -33,6 +34,7 @@ class QuestionsAnswers(MP_Node):
 
 class QuestionnaireManager(models.Manager):
     def valid_qa_tree(self):
+        """return Questionnaire objects with is_valid_qa_tree"""
         return self.filter(is_valid_qa_tree=True)
 
 
@@ -46,6 +48,7 @@ class Questionnaire(models.Model):
     objects = QuestionnaireManager()
 
     def validate_qa_tree(self):
+        """Validate entire tree (not implemented yet)"""
         # TODO implement validation of qa tree
         self.is_valid_qa_tree = True
 
@@ -67,6 +70,10 @@ class QuestionnaireSession(models.Model):
     finished = models.BooleanField(default=False)
 
     def next_questions_answers(self):
+        """
+        get and return next question answers for current state of questionnaire session
+        :return: QuestionsAnswers object
+        """
         if not len(self.answers):
             # load first answer
             questions_answers = self.questionnaire.first_qa
@@ -76,11 +83,20 @@ class QuestionnaireSession(models.Model):
         return questions_answers
 
     def last_answer(self):
+        """
+        get and return last answer for this questionnaire session or raise http404
+        :return: QuestionsAnswers object
+        """
         last_answer_id = self.answers[-1]
         last_answer = get_object_or_404(QuestionsAnswers.objects, pk=last_answer_id)
         return last_answer
 
     def is_valid_answer(self, answer):
+        """
+        check that answer exists for current question and questionnaire session not finished yet
+        :param answer: answer object for check
+        :return: true for valid answer object, otherwise false
+        """
         if self.finished:
             return False
         if not len(self.answers):
@@ -89,11 +105,17 @@ class QuestionnaireSession(models.Model):
 
     @classmethod
     def new_questionnaire_session(cls, questionnaire_id):
+        """
+        Create new QuestionnaireSession object
+        :param questionnaire_id: related questionnaire for new session
+        :return: QuestionnaireSession object
+        """
         questionnaire = get_object_or_404(Questionnaire.objects.valid_qa_tree(), pk=questionnaire_id)
         qs = QuestionnaireSession.objects.create(questionnaire=questionnaire, answers=[])
         return qs.id
 
     def _update_finished(self):
+        """checks whether the session finished and print qa log"""
         prev_finished = self.finished
         if len(self.answers) and not self.finished:
             last_answer = self.last_answer()
@@ -106,6 +128,7 @@ class QuestionnaireSession(models.Model):
         super().save(*args, **kwargs)
 
     def _print_answers_log(self):
+        """print the conversation history into the console"""
         msg = f'{self.questionnaire.first_qa.title}: '
         answers = []
         for answer_id in self.answers:
