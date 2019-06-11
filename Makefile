@@ -1,6 +1,5 @@
 # Ariana tasks.
 
-
 .PHONY: install-dev
 install-dev:
 	@pip install -U -r requirements/local.txt
